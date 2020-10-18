@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
+
 import "./App.css";
 import Home from "./Home";
 import SnackOrBoozeApi from "./Api";
 import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
 import Menu from "./Menu"
-import Snack from "./FoodItem";
-import Drink from "./DrinkItem";
-import SnacksAmount from "./SnacksAmount";
-import DrinksAmount from "./DrinksAmount";
+import Item from "./Item";
+import ItemAmounts from "./ItemAmounts";
 import AddForm from "./AddForm";
 
 function App() {
@@ -40,14 +38,12 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
         <NavBar />
         <main>
           <Switch>
             <Route exact path="/">
               <Home snacks={snacks} />
-              <SnacksAmount snacks={snacks} />
-              <DrinksAmount drinks={drinks} />
+              <ItemAmounts snacks={snacks} drinks={drinks}   />
             </Route>
             <Route exact path="/snacks">
               <Menu menuItems={snacks} category="Snack" title="Some tasty bites to soak up all booze you're drinking"/>
@@ -56,10 +52,10 @@ function App() {
               <Menu menuItems={drinks} category="Drink" title="We've made some fancy ass drinks for yo drunk ass."/>
             </Route>
             <Route path="/snacks/:id">
-              <Snack items={snacks} cantFind="/snacks" />
+              <Item items={snacks} cantFind="/snacks" />
             </Route>
             <Route path="/drinks/:id">
-              <Drink items={drinks} cantFind="/drinks" />
+              <Item items={drinks} cantFind="/drinks" />
             </Route>
             <Route exact path="/add-drink">
               <AddForm route="drinks"/>
@@ -72,7 +68,6 @@ function App() {
             </Route>
           </Switch>
         </main>
-      </BrowserRouter>
     </div>
   );
 }

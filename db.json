@@ -64,13 +64,6 @@
       "description": "Taco Tuesday!",
       "recipe": "Cover expensive, organic tortilla chips with Cheez Whiz.",
       "serve": "Serve in a hand-thrown ceramic bowl, garnished with canned black olives"
-    },
-    {
-      "id": "guac-dip",
-      "name": "Guac Dip",
-      "description": "Tasty with chips",
-      "recipe": "Avocados smashed",
-      "serve": "Put in a bowl dum dum"
     }
   ]
 }
